@@ -1,0 +1,4 @@
+(defun print-dots (n)
+  (do ((i 0 (+ i 1)))
+      ((>= i n) 'done)
+    (print ".")))

@@ -1,0 +1,8 @@
+(defun contains-list (l)
+  (if (null l)
+      nil
+      (if (null (car l))
+	  t
+	  (contains-list (cdr l)))))
+
+(contains-list '
