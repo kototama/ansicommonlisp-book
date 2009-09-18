@@ -6,7 +6,7 @@
 
 (defun mystery (x y) 
   "Return the first position of the element x in the list, 
-  or nil it does not exist"
+  or nil if it does not exist"
   (if (null y)	
       nil
       (if (eql (car y) x)
