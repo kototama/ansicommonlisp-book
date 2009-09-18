@@ -1,3 +1,0 @@
-(defun summit (lst)
-  (remove nil lst)
-  (apply #'+ lst))

@@ -1,1 +1,0 @@
-(car (x (cdr '(a (b c) d)))) ;; b
