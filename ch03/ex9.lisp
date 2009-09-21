@@ -3,7 +3,7 @@
     (reverse (car (sort paths (lambda (x y) (> (length x) (length y))))))))
 
 (defun dfs (end path net)
-  "deep search"
+  "depth-first search"
   (if (eql end (car path))
       ;; return all possible paths that go to element end
       (list path)
