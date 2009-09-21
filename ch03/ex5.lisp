@@ -15,10 +15,8 @@
 	    (pos+_recacc (cdr lst) (+ acc 1)))))
 
 (defun pos+_map (lst)
-  (let ((pos 0))
-    (mapcar (lambda (x) 
-	      (let ((cur pos)) (setf pos (+ pos 1)) (+ cur x))) 
-	    lst)))
+  (let ((pos -1))
+    (mapcar (lambda (x) (setf pos (+ pos 1)) (+ pos x)) lst)))
       
 (pos+_iter '(7 5 1 4)) ;; (7 6 3 7)
 
