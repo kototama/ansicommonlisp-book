@@ -3,9 +3,8 @@
     (reverse (car (sort paths (lambda (x y) (> (length x) (length y))))))))
 
 (defun dfs (end path net)
-  "depth-first search"
+  "Depth-first search. Return all possible paths that go to element end"
   (if (eql end (car path))
-      ;; return all possible paths that go to element end
       (list path)
       (let ((paths nil))
 	(let ((children (cdr (assoc (car path) net))))
