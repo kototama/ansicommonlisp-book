@@ -47,7 +47,7 @@
     (do* ((q queue (cdr q))
           (path (car q) (car q))
           (node (car path) (car path)))
-        ((null q) 'done)
+        ((null q))
       (if (eql node end)
 	  (return (reverse path))
 	(setf q (append q (new-paths path node net)))))))
