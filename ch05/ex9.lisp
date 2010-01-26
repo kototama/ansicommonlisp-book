@@ -24,7 +24,7 @@
 (defun find-path2 (start end net)
   (fp2 end (list (list start)) net))
 
-;; not sure about this one
+;; not sure about this one, we still dequeue
 (defun fp2 (end queue net)
   (if (null queue)
       nil
@@ -36,6 +36,21 @@
                   (append (cdr queue)
                           (new-paths path node net))
                   net))))))
+
+;; iterative version
+(defun find-path3 (start end net)
+  (fp3 end (list (list start)) net))
+
+(defun fp3 (end queue net)
+  (if (null queue)
+      nil
+    (do* ((q queue (cdr q))
+          (path (car q) (car q))
+          (node (car path) (car path)))
+        ((null q) 'done)
+      (if (eql node end)
+	  (return (reverse path))
+	(setf q (append q (new-paths path node net)))))))
 
 (defparameter net '((a b c) (b c) (c d)))
 
