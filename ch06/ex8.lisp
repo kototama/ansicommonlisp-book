@@ -9,5 +9,3 @@
           (setf (gethash x results) (expensive x))
           res))))
 
-;; the answer of http://www.automatous-monk.com/lisp/aclp/chap06-exer08.html
-;; is false!
