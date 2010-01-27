@@ -33,9 +33,9 @@
           (if (eql node end)
               (return-from fp2 (reverse path))
               (fp2 end
-                  (append (cdr queue)
-                          (new-paths path node net))
-                  net))))))
+                   (append (cdr queue)
+                           (new-paths path node net))
+                   net))))))
 
 ;; iterative version
 (defun find-path3 (start end net)
@@ -44,13 +44,13 @@
 (defun fp3 (end queue net)
   (if (null queue)
       nil
-    (do* ((q queue (cdr q))
-          (path (car q) (car q))
-          (node (car path) (car path)))
-        ((null q))
-      (if (eql node end)
-	  (return (reverse path))
-	(setf q (append q (new-paths path node net)))))))
+      (do* ((q queue (cdr q))
+            (path (car q) (car q))
+            (node (car path) (car path)))
+           ((null q))
+        (if (eql node end)
+            (return (reverse path))
+            (setf q (append q (new-paths path node net)))))))
 
 (defparameter net '((a b c) (b c) (c d)))
 
