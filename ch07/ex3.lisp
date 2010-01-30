@@ -1,0 +1,17 @@
+(defun filecopy-nocomment (infilename outfilename)
+  (let ((inpath (make-pathname :name infilename))
+        (outpath (make-pathname :name outfilename)))
+    (with-open-file (instr inpath :direction :input)
+      (with-open-file (outstr outpath :direction :output :if-exists :supersede)
+        (streamcopy-nocomment instr outstr)))))
+
+(defun streamcopy-nocomment (instr outstr)
+  (do ((line (read-line instr nil 'eof) (read-line instr nil 'eof)))
+      ((eql line 'eof))
+    (let ((pos (position #\% line)))
+      (if (null pos)
+          (princ line outstr)
+          (princ (subseq line 0 pos) outstr))
+      (terpri outstr))))
+
+;; (filecopy-nocomment "test3.txt" "test3out.txt")
