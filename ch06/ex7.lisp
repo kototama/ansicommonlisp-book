@@ -1,15 +1,15 @@
 (let ((last nil))
-  (defun maxthanlast-p (x)
+  (defun greaterthanlast-p (x)
     (let ((p last))
       (setf last x)
       (when (not (null p))
         (> x p)))))
 
-;; CL-USER> (maxthanlast-p 42)
+;; CL-USER> (greaterthanlast-p 42)
 ;; NIL
-;; CL-USER> (maxthanlast-p 43)
+;; CL-USER> (greaterthanlast-p 43)
 ;; T
-;; CL-USER> (maxthanlast-p 40)
+;; CL-USER> (greaterthanlast-p 40)
 ;; NIL
-;; CL-USER> (maxthanlast-p 41)
+;; CL-USER> (greaterthanlast-p 41)
 ;; T
